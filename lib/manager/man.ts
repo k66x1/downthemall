@@ -237,6 +237,8 @@ export class Manager extends EventEmitter {
     this.maybeInstallNameListener();
 
     setShelfEnabled(false);
+    const randomMs = Math.round((Math.random() * (8 - 4) + 4) * 1000);
+    await new Promise(r => setTimeout(r, randomMs));  
     await download.start();
     this.notifiedFinished = false;
   }
